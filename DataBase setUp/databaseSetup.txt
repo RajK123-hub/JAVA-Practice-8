@@ -1,0 +1,30 @@
+CREATE DATABASE nimbusdb;
+USE nimbusdb;
+
+-- For Part A: Login
+CREATE TABLE Users (
+  username VARCHAR(50) PRIMARY KEY,
+  password VARCHAR(100) NOT NULL,
+  fullname VARCHAR(100)
+);
+INSERT INTO Users VALUES ('rupu', 'r123', 'Rupesh Patel');
+
+-- For Part B: Employee records
+CREATE TABLE Employee (
+  EmpID INT PRIMARY KEY,
+  Name VARCHAR(100) NOT NULL,
+  Salary DECIMAL(10,2) NOT NULL
+);
+INSERT INTO Employee VALUES 
+(1,'Alice',45000.00),
+(2,'Bob',52000.00),
+(3,'Charlie',40000.00);
+
+-- For Part C: Attendance
+CREATE TABLE Attendance (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  studentId VARCHAR(50) NOT NULL,
+  attDate DATE NOT NULL,
+  status ENUM('Present','Absent','Late') NOT NULL,
+  recorded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
